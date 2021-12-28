@@ -67,35 +67,54 @@ IOVUF PORT "yellow_led_d6" IO_TYPE=LVCMOS25;
 LOCATE  COMP  "mhz_16"  SITE  "L20"; # out
 LOCATE  COMP  "mhz_96"  SITE  "L17"; # out
 
-LOCATE  COMP  "rpi_pin_11"  SITE  "D5";
-LOCATE  COMP  "rpi_pin_12"  SITE  "G5";
-LOCATE  COMP  "rpi_pin_22"  SITE  "E4";
-LOCATE  COMP  "rpi_pin_29"  SITE  "E3";
-LOCATE  COMP  "rpi_pin_31"  SITE  "E5";
-LOCATE  COMP  "rpi_pin_32"  SITE  "D1";
-LOCATE  COMP  "rpi_pin_33"  SITE  "F5";
-LOCATE  COMP  "rpi_pin_35"  SITE  "A2";
-LOCATE  COMP  "rpi_pin_36"  SITE  "C1";
-LOCATE  COMP  "rpi_pin_37"  SITE  "B1";
-LOCATE  COMP  "rpi_pin_38"  SITE  "C2";
-LOCATE  COMP  "rpi_pin_40"  SITE  "B2";
 
-LOCATE  COMP  "rtc_mfp"  SITE  "E2";
-LOCATE  COMP  "rtc_scl"  SITE  "B3";
-LOCATE  COMP  "rtc_sda"  SITE  "A3";
+# reaspberry pi header
+# pin 1: 3v3 n/c
+# pin 2: 5v
+LOCATE  COMP  "rtc_sda"     SITE  "A3"; # pin 3: gpio2 SDA
+# pin 4: 5v
+LOCATE  COMP  "rtc_scl"     SITE  "B3"; # pin 5: gpio3 SCL
+# pin 6: GND
+LOCATE  COMP  "rtc_mfp"     SITE  "E2"; # pin 7: gpio4
+LOCATE  COMP  "uart_rx"     SITE  "G3"; # pin 8: gpio14 TXD
+# pin 9: GND
+LOCATE  COMP  "uart_tx"     SITE  "H3"; # pin 10: gpio15 RXD
+LOCATE  COMP  "rpi_pin_11"  SITE  "D5"; # pin 11: gpio17
+LOCATE  COMP  "rpi_pin_12"  SITE  "G5"; # pin 12: gpio18
+# pin 13: gpio27 - TMS U5
+# pin 14: GND
+# pin 15: gpio22 - TDI R5
+# pin 16: gpio23 - TCK T5
+# pin 17: 3v3 n/c
+# pin 18: gpio24 - TDO V4
+LOCATE  COMP  "spi_mosi"    SITE  "C3"; # pin 19: gpio10 MOSI
+# pin 20: GND
+LOCATE  COMP  "spi_miso"    SITE  "D3"; # pin 21: gpio9 MISO
+LOCATE  COMP  "rpi_pin_22"  SITE  "E4"; # pin 22: gpio25
+LOCATE  COMP  "spi_sclk"    SITE  "F4"; # pin 23: gpio11 CLK
+LOCATE  COMP  "spi_cs0"     SITE  "E1"; # pin 24: gpio8 CS0
+# pin 25: GND
+LOCATE  COMP  "spi_cs1"     SITE  "D2"; # pin 26: gpio7 CS1
+# pin 27: gpio0 - sda HAT eeprom
+# pin 28: gpio1 - scl HAT eeprom
+LOCATE  COMP  "rpi_pin_29"  SITE  "E3"; # pin 29: gpio5
+# pin 30: GND
+LOCATE  COMP  "rpi_pin_31"  SITE  "E5"; # pin 31: gpio6
+LOCATE  COMP  "rpi_pin_32"  SITE  "D1"; # pin 32: gpio12
+LOCATE  COMP  "rpi_pin_33"  SITE  "F5"; # pin 33: gpio13
+# pin 34: GND
+LOCATE  COMP  "rpi_pin_35"  SITE  "A2"; # pin 35: gpio19
+LOCATE  COMP  "rpi_pin_36"  SITE  "C1"; # pin 36: gpio16
+LOCATE  COMP  "rpi_pin_37"  SITE  "B1"; # pin 37: gpio26
+LOCATE  COMP  "rpi_pin_38"  SITE  "C2"; # pin 38: gpio20
+# pin 39: GND
+LOCATE  COMP  "rpi_pin_40"  SITE  "B2"; # pin 40: gpio21
 
-LOCATE  COMP  "spi_cs0"  SITE  "E1";
-LOCATE  COMP  "spi_cs1"  SITE  "D2";
-LOCATE  COMP  "spi_miso"  SITE  "D3";
-LOCATE  COMP  "spi_mosi"  SITE  "C3";
-LOCATE  COMP  "spi_sclk"  SITE  "F4";
 
 LOCATE  COMP  "tuner_hf"  SITE  "D8";
 LOCATE  COMP  "tuner_scl"  SITE  "C6";
 LOCATE  COMP  "tuner_sda"  SITE  "C7";
 
-LOCATE  COMP  "uart_rx"  SITE  "G3";
-LOCATE  COMP  "uart_tx"  SITE  "H3";
 
 LOCATE  COMP  "unused"  SITE  "B11";
 
