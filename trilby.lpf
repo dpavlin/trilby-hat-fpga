@@ -1,0 +1,102 @@
+# created based on https://github.com/danderson/ulxs/blob/main/lpf.md
+# and output files
+
+# PART TYPE:        LFE5U-45F
+# Performance Grade:      6
+# PACKAGE:          CABGA381
+
+#SYSCONFIG SLAVE_SPI_PORT=DISABLE MASTER_SPI_PORT=ENABLE SLAVE_PARALLEL_PORT=DISABLE BACKGROUND_RECONFIG=OFF DONE_EX=OFF DONE_OD=ON DONE_PULL=ON MCCLK_FREQ=2.4 TRANSFR=OFF CONFIG_IOVOLTAGE=2.5 CONFIG_SECURE=OFF WAKE_UP=21 COMPRESS_CONFIG=OFF CONFIG_MODE=JTAG ;
+
+LOCATE  COMP  "AGC_A"  SITE  "E8";
+
+LOCATE  COMP  "clk"  SITE  "U16"; # CLK 24Mhz TCXO
+IOBUF PORT "clk" IO_TYPE=LVCMOS25; # ? 33?
+
+LOCATE  COMP  "a2dq10"  SITE  "C17";
+LOCATE  COMP  "a2dq11"  SITE  "A18";
+LOCATE  COMP  "a2dq12"  SITE  "A19";
+LOCATE  COMP  "a2dq13"  SITE  "B19";
+LOCATE  COMP  "a2dq2"  SITE  "B12";
+LOCATE  COMP  "a2dq3"  SITE  "D15";
+LOCATE  COMP  "a2dq4"  SITE  "C15";
+LOCATE  COMP  "a2dq5"  SITE  "B15";
+LOCATE  COMP  "a2dq6"  SITE  "E15";
+LOCATE  COMP  "a2dq7"  SITE  "C16";
+LOCATE  COMP  "a2dq8"  SITE  "D16";
+LOCATE  COMP  "a2dq9"  SITE  "B17";
+
+LOCATE  COMP  "audio_l"  SITE  "H20";
+LOCATE  COMP  "audio_r"  SITE  "K18";
+
+LOCATE  COMP  "exp_pin_10"  SITE  "J16";
+LOCATE  COMP  "exp_pin_11"  SITE  "C13";
+LOCATE  COMP  "exp_pin_12"  SITE  "E19";
+LOCATE  COMP  "exp_pin_13"  SITE  "D13";
+LOCATE  COMP  "exp_pin_14"  SITE  "E20";
+LOCATE  COMP  "exp_pin_15"  SITE  "E13";
+LOCATE  COMP  "exp_pin_16"  SITE  "F19";
+LOCATE  COMP  "exp_pin_17"  SITE  "A14";
+LOCATE  COMP  "exp_pin_18"  SITE  "F20";
+LOCATE  COMP  "exp_pin_19"  SITE  "C14";
+LOCATE  COMP  "exp_pin_21"  SITE  "D14";
+LOCATE  COMP  "exp_pin_3"  SITE  "E12";
+LOCATE  COMP  "exp_pin_4"  SITE  "H18";
+LOCATE  COMP  "exp_pin_5"  SITE  "A12";
+LOCATE  COMP  "exp_pin_6"  SITE  "H17";
+LOCATE  COMP  "exp_pin_7"  SITE  "A13";
+LOCATE  COMP  "exp_pin_8"  SITE  "J17";
+LOCATE  COMP  "exp_pin_9"  SITE  "B13";
+
+LOCATE  COMP  "green_led_d7"  SITE  "G16";
+LOCATE  COMP  "orange_led_d8" SITE  "H16";
+LOCATE  COMP  "red_led_d5"    SITE  "E18";
+LOCATE  COMP  "yellow_led_d6" SITE  "F18";
+
+IOVUF PORT "green_led_d7"  IO_TYPE=LVCMOS25;
+IOVUF PORT "orange_led_d8" IO_TYPE=LVCMOS25;
+IOVUF PORT "red_led_d5"    IO_TYPE=LVCMOS25;
+IOVUF PORT "yellow_led_d6" IO_TYPE=LVCMOS25;
+
+LOCATE  COMP  "mhz_16"  SITE  "L20";
+LOCATE  COMP  "mhz_96"  SITE  "L17";
+
+LOCATE  COMP  "res_in"  SITE  "E14";
+LOCATE  COMP  "rpi_pin_11"  SITE  "D5";
+LOCATE  COMP  "rpi_pin_12"  SITE  "G5";
+LOCATE  COMP  "rpi_pin_22"  SITE  "E4";
+LOCATE  COMP  "rpi_pin_29"  SITE  "E3";
+LOCATE  COMP  "rpi_pin_31"  SITE  "E5";
+LOCATE  COMP  "rpi_pin_32"  SITE  "D1";
+LOCATE  COMP  "rpi_pin_33"  SITE  "F5";
+LOCATE  COMP  "rpi_pin_35"  SITE  "A2";
+LOCATE  COMP  "rpi_pin_36"  SITE  "C1";
+LOCATE  COMP  "rpi_pin_37"  SITE  "B1";
+LOCATE  COMP  "rpi_pin_38"  SITE  "C2";
+LOCATE  COMP  "rpi_pin_40"  SITE  "B2";
+
+LOCATE  COMP  "rtc_mfp"  SITE  "E2";
+LOCATE  COMP  "rtc_scl"  SITE  "B3";
+LOCATE  COMP  "rtc_sda"  SITE  "A3";
+
+LOCATE  COMP  "spi_cs0"  SITE  "E1";
+LOCATE  COMP  "spi_cs1"  SITE  "D2";
+LOCATE  COMP  "spi_miso"  SITE  "D3";
+LOCATE  COMP  "spi_mosi"  SITE  "C3";
+LOCATE  COMP  "spi_sclk"  SITE  "F4";
+
+LOCATE  COMP  "tuner_hf"  SITE  "D8";
+LOCATE  COMP  "tuner_scl"  SITE  "C6";
+LOCATE  COMP  "tuner_sda"  SITE  "C7";
+
+LOCATE  COMP  "uart_rx"  SITE  "G3";
+LOCATE  COMP  "uart_tx"  SITE  "H3";
+
+LOCATE  COMP  "unused"  SITE  "B11";
+
+#PLL
+LOCATE  COMP  "I518/pll_24_to_96_inst/PLLInst_0"  SITE  "PLL_BR0" ;
+
+#FREQUENCY NET "N_355" 16.000000 MHz ;
+#FREQUENCY NET "clkfast" 96.000000 MHz ;
+#FREQUENCY NET "clk24" 24.000000 MHz ;
+#FREQUENCY NET "N_810" 24.000000 MHz ;
