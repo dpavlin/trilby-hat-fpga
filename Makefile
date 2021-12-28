@@ -1,4 +1,5 @@
 PROJ:=led
+PROJ=blinky
 TRELLIS?=/usr/share/trellis
 
 all: ${PROJ}.bit
