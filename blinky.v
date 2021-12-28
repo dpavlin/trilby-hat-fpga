@@ -43,9 +43,9 @@ module top(input clk,
     endgenerate
 
     // assign led = led_reg;
-	assign green_led_d7  = led_reg[0];
-	assign orange_led_d8 = led_reg[1];
-	assign red_led_d5    = led_reg[2];
-	assign yellow_led_d6 = led_reg[3];
+	assign green_led_d7  = led_reg[2];
+	assign red_led_d5    = led_reg[3];
+	assign yellow_led_d6 = led_reg[4];
+	assign orange_led_d8 = led_reg[5];
 
 endmodule

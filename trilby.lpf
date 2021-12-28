@@ -54,15 +54,18 @@ LOCATE  COMP  "exp_pin_21"  SITE  "D14";
 LOCATE  COMP  "res_in"  SITE  "E14"; # in
 # pins 23,24 are GND
 
+
+# order like on PCB, D7, D5, D6, D8
 LOCATE  COMP  "green_led_d7"  SITE  "G16";
-LOCATE  COMP  "orange_led_d8" SITE  "H16";
 LOCATE  COMP  "red_led_d5"    SITE  "E18";
 LOCATE  COMP  "yellow_led_d6" SITE  "F18";
+LOCATE  COMP  "orange_led_d8" SITE  "H16";
 
 IOBUF PORT "green_led_d7"  IO_TYPE=LVCMOS33;
 IOBUF PORT "orange_led_d8" IO_TYPE=LVCMOS33;
 IOBUF PORT "red_led_d5"    IO_TYPE=LVCMOS33;
 IOBUF PORT "yellow_led_d6" IO_TYPE=LVCMOS33;
+
 
 LOCATE  COMP  "mhz_16"  SITE  "L20"; # out
 LOCATE  COMP  "mhz_96"  SITE  "L17"; # out
