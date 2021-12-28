@@ -29,6 +29,15 @@ LOCATE  COMP  "a2dq9"  SITE  "B17";
 LOCATE  COMP  "audio_l"  SITE  "H20"; # out
 LOCATE  COMP  "audio_r"  SITE  "K18"; # out
 
+# 24 pin header on HAT
+# pins 1,2 are 5V
+LOCATE  COMP  "exp_pin_3"  SITE  "E12";
+LOCATE  COMP  "exp_pin_4"  SITE  "H18";
+LOCATE  COMP  "exp_pin_5"  SITE  "A12";
+LOCATE  COMP  "exp_pin_6"  SITE  "H17";
+LOCATE  COMP  "exp_pin_7"  SITE  "A13";
+LOCATE  COMP  "exp_pin_8"  SITE  "J17";
+LOCATE  COMP  "exp_pin_9"  SITE  "B13";
 LOCATE  COMP  "exp_pin_10"  SITE  "J16";
 LOCATE  COMP  "exp_pin_11"  SITE  "C13";
 LOCATE  COMP  "exp_pin_12"  SITE  "E19";
@@ -39,14 +48,11 @@ LOCATE  COMP  "exp_pin_16"  SITE  "F19";
 LOCATE  COMP  "exp_pin_17"  SITE  "A14";
 LOCATE  COMP  "exp_pin_18"  SITE  "F20";
 LOCATE  COMP  "exp_pin_19"  SITE  "C14";
+# pin 20 GND
 LOCATE  COMP  "exp_pin_21"  SITE  "D14";
-LOCATE  COMP  "exp_pin_3"  SITE  "E12";
-LOCATE  COMP  "exp_pin_4"  SITE  "H18";
-LOCATE  COMP  "exp_pin_5"  SITE  "A12";
-LOCATE  COMP  "exp_pin_6"  SITE  "H17";
-LOCATE  COMP  "exp_pin_7"  SITE  "A13";
-LOCATE  COMP  "exp_pin_8"  SITE  "J17";
-LOCATE  COMP  "exp_pin_9"  SITE  "B13";
+# pin 22 marked reset, buffered by NC7WZ14 into E14
+LOCATE  COMP  "res_in"  SITE  "E14"; # in
+# pins 23,24 are GND
 
 LOCATE  COMP  "green_led_d7"  SITE  "G16";
 LOCATE  COMP  "orange_led_d8" SITE  "H16";
@@ -60,8 +66,6 @@ IOVUF PORT "yellow_led_d6" IO_TYPE=LVCMOS25;
 
 LOCATE  COMP  "mhz_16"  SITE  "L20"; # out
 LOCATE  COMP  "mhz_96"  SITE  "L17"; # out
-
-LOCATE  COMP  "res_in"  SITE  "E14"; # in
 
 LOCATE  COMP  "rpi_pin_11"  SITE  "D5";
 LOCATE  COMP  "rpi_pin_12"  SITE  "G5";
