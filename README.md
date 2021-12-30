@@ -1,5 +1,7 @@
 # Trilby HAT ECP5 45k FPGA
 
+http://www.kinetic.co.uk/Trilby.php
+
 This is my attempt at using open source tools to generate bitstream
 
 Run `make prog` to load the example to the board.
