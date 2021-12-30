@@ -11,7 +11,7 @@ all: ${PROJ}.bit
 	nextpnr-ecp5 --json $< --textcfg $@ --45k --package CABGA381 --lpf trilby.lpf
 
 %.bit: %_out.config
-	ecppack --svf ${PROJ}.svf $< $@
+	ecppack --compress --svf ${PROJ}.svf $< $@
 
 ${PROJ}.svf : ${PROJ}.bit
 
