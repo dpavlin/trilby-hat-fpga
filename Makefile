@@ -1,5 +1,5 @@
 PROJ:=led
-PROJ=blinky
+PROJ=i2c
 TRELLIS?=/usr/share/trellis
 
 all: ${PROJ}.bit
