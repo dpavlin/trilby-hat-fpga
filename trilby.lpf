@@ -137,7 +137,7 @@ IOBUF PORT "rpi_pin_38"  IO_TYPE=LVCMOS33;
 IOBUF PORT "rpi_pin_40"  IO_TYPE=LVCMOS33;
 
 
-LOCATE  COMP  "tuner_hf"  SITE  "D8";
+LOCATE  COMP  "tuner_hf"   SITE  "D8"; # ADG918 switch lf/hf
 LOCATE  COMP  "tuner_scl"  SITE  "C6";
 LOCATE  COMP  "tuner_sda"  SITE  "C7";
 
