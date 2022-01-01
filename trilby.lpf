@@ -13,18 +13,29 @@ LOCATE  COMP  "clk"  SITE  "U16"; # CLK 24Mhz TCXO
 IOBUF PORT "clk" PULLMODE=NONE IO_TYPE=LVCMOS33; # ? 33?
 FREQUENCY PORT "clk" 24 MHZ;
 
-LOCATE  COMP  "a2dq10"  SITE  "C17"; # in
+
+# LTC2226CUH - in
+# 12bit, 25Msps, 3V ADC
+# clk - 24mhz tcxo
+
+LOCATE  COMP  "a2dq0"   SITE  "D12"; # D0 -- not used (noise?), from schematic
+LOCATE  COMP  "a2dq1"   SITE  "C12"; # D1 -- not used
+LOCATE  COMP  "a2dq2"   SITE  "B12";
+LOCATE  COMP  "a2dq3"   SITE  "D15";
+LOCATE  COMP  "a2dq4"   SITE  "C15";
+LOCATE  COMP  "a2dq5"   SITE  "B15";
+LOCATE  COMP  "a2dq6"   SITE  "E15";
+LOCATE  COMP  "a2dq7"   SITE  "C16";
+LOCATE  COMP  "a2dq8"   SITE  "D16";
+LOCATE  COMP  "a2dq9"   SITE  "B17";
+LOCATE  COMP  "a2dq10"  SITE  "C17";
 LOCATE  COMP  "a2dq11"  SITE  "A18";
 LOCATE  COMP  "a2dq12"  SITE  "A19";
 LOCATE  COMP  "a2dq13"  SITE  "B19";
-LOCATE  COMP  "a2dq2"  SITE  "B12";
-LOCATE  COMP  "a2dq3"  SITE  "D15";
-LOCATE  COMP  "a2dq4"  SITE  "C15";
-LOCATE  COMP  "a2dq5"  SITE  "B15";
-LOCATE  COMP  "a2dq6"  SITE  "E15";
-LOCATE  COMP  "a2dq7"  SITE  "C16";
-LOCATE  COMP  "a2dq8"  SITE  "D16";
-LOCATE  COMP  "a2dq9"  SITE  "B17";
+
+LOCATE  COMP  "a2d_of"  SITE  "B20"; # over/under flow
+
+
 
 LOCATE  COMP  "audio_l"  SITE  "H20"; # out
 LOCATE  COMP  "audio_r"  SITE  "K18"; # out
