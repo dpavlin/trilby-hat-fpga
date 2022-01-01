@@ -79,7 +79,7 @@ IOBUF PORT "yellow_led_d6" IO_TYPE=LVCMOS33;
 
 
 LOCATE  COMP  "mhz_16"  SITE  "L20"; # out
-LOCATE  COMP  "mhz_96"  SITE  "L17"; # out
+LOCATE  COMP  "mhz_96"  SITE  "L17"; # out - ADE-1 frequency mixer LO
 
 
 # reaspberry pi header
