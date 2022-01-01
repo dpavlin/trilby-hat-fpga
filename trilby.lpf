@@ -148,7 +148,7 @@ IOBUF PORT "tuner_sda"  IO_TYPE=LVCMOS33;
 LOCATE  COMP  "unused"  SITE  "B11";
 
 #PLL
-LOCATE  COMP  "I518/pll_24_to_96_inst/PLLInst_0"  SITE  "PLL_BR0" ;
+#LOCATE  COMP  "I518/pll_24_to_96_inst/PLLInst_0"  SITE  "PLL_BR0" ;
 
 #FREQUENCY NET "N_355" 16.000000 MHz ;
 #FREQUENCY NET "clkfast" 96.000000 MHz ;
