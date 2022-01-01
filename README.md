@@ -1,4 +1,4 @@
-# Trilby HAT ECP5 45k FPGA
+# Trilby HAT ECP5 FPGA SDR for Raspberry Pi
 
 http://www.kinetic.co.uk/Trilby.php
 
