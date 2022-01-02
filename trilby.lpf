@@ -17,21 +17,25 @@ FREQUENCY PORT "clk" 24 MHZ;
 # LTC2226CUH - in
 # 12bit, 25Msps, 3V ADC
 # clk - 24mhz tcxo
+#
+# schematics implies that ADC has 14 bits, it has only 12
+# my guess it that previous version had 14 bit ADC, so
+# a2dq0 and a2dq1 are not used in original vhdl
 
-LOCATE  COMP  "a2dq0"   SITE  "D12"; # D0 -- not used (noise?), from schematic
-LOCATE  COMP  "a2dq1"   SITE  "C12"; # D1 -- not used
-LOCATE  COMP  "a2dq2"   SITE  "B12";
-LOCATE  COMP  "a2dq3"   SITE  "D15";
-LOCATE  COMP  "a2dq4"   SITE  "C15";
-LOCATE  COMP  "a2dq5"   SITE  "B15";
-LOCATE  COMP  "a2dq6"   SITE  "E15";
-LOCATE  COMP  "a2dq7"   SITE  "C16";
-LOCATE  COMP  "a2dq8"   SITE  "D16";
-LOCATE  COMP  "a2dq9"   SITE  "B17";
-LOCATE  COMP  "a2dq10"  SITE  "C17";
-LOCATE  COMP  "a2dq11"  SITE  "A18";
-LOCATE  COMP  "a2dq12"  SITE  "A19";
-LOCATE  COMP  "a2dq13"  SITE  "B19";
+LOCATE  COMP  "a2dq0"   SITE  "D12"; # -- not used in hdl (12-bit ADC), from schematic
+LOCATE  COMP  "a2dq1"   SITE  "C12"; # -- not used
+LOCATE  COMP  "a2dq2"   SITE  "B12"; # D0
+LOCATE  COMP  "a2dq3"   SITE  "D15"; # D1
+LOCATE  COMP  "a2dq4"   SITE  "C15"; # D2
+LOCATE  COMP  "a2dq5"   SITE  "B15"; # D3
+LOCATE  COMP  "a2dq6"   SITE  "E15"; # D4
+LOCATE  COMP  "a2dq7"   SITE  "C16"; # D5
+LOCATE  COMP  "a2dq8"   SITE  "D16"; # D6
+LOCATE  COMP  "a2dq9"   SITE  "B17"; # D7
+LOCATE  COMP  "a2dq10"  SITE  "C17"; # D8
+LOCATE  COMP  "a2dq11"  SITE  "A18"; # D9
+LOCATE  COMP  "a2dq12"  SITE  "A19"; # D10
+LOCATE  COMP  "a2dq13"  SITE  "B19"; # D11 MSB
 
 LOCATE  COMP  "a2d_of"  SITE  "B20"; # over/under flow
 
