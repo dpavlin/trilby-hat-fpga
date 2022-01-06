@@ -1,5 +1,6 @@
 `include "i2c_bridge.v"
 `include "ecp5pll.sv"
+`include "SPI_slave.v"
 
 module top(
 	input clk,
@@ -16,10 +17,14 @@ module top(
 	output exp_pin_5, exp_pin_6,
 	output exp_pin_7, exp_pin_8,
 
+	input spi_sclk, spi_mosi, spi_cs0,
+	output spi_miso,
+
 	output green_led_d7,
 	output orange_led_d8,
 	output red_led_d5,
 	output yellow_led_d6
+
 );
 
 	wire [3:0] clocks;
@@ -46,11 +51,16 @@ module top(
 	assign exp_pin_4 = rtc_scl;
 	assign exp_pin_8 = rtc_sda;
 
+/*
 	assign green_led_d7  = rtc_scl;
 	assign orange_led_d8 = rtc_sda;
 	assign red_led_d5    = tuner_scl;
 	assign yellow_led_d6 = tuner_sda;
-
+*/
+	assign green_led_d7  = 0;
+	assign orange_led_d8 = 0;
+	//assign red_led_d5    = tuner_scl;
+	assign yellow_led_d6 = 0;
 
   localparam bridge_clk_div = 3; // div = 1+2^n, 24/(1+2^2)=4 MHz
   reg [bridge_clk_div:0] bridge_cnt;
@@ -86,5 +96,15 @@ module top(
   );
   assign rtc_scl = i2c_scl_t[1] ? 1'bz : 1'b0;
   assign tuner_scl = i2c_scl_t[0] ? 1'bz : 1'b0;
+
+
+	SPI_slave SPI_slave(
+		.clk(clk),
+		.SCK(spi_sclk),
+		.MOSI(spi_mosi),
+		.MISO(spi_miso),
+		.SSEL(spi_cs0),
+		.LED(red_led_d5)
+	);
 
 endmodule
