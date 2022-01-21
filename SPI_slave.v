@@ -1,6 +1,8 @@
 // https://www.fpga4fun.com/SPI2.html
 
-module SPI_slave(clk, SCK, MOSI, MISO, SSEL, LED);
+module SPI_slave(clk, SCK, MOSI, MISO, SSEL, LED,
+	d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11
+);
 
 input clk;
 
@@ -8,6 +10,8 @@ input SCK, SSEL, MOSI;
 output MISO;
 
 output LED;
+
+input d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11;
 
 // sync SCK to the FPGA clock using a 3-bits shift register
 reg [2:0] SCKr;  always @(posedge clk) SCKr <= {SCKr[1:0], SCK};
@@ -26,6 +30,7 @@ wire MOSI_data = MOSIr[1];
 
 // we handle SPI in 8-bits format, so we need a 3 bits counter to count the bits as they come in
 reg [2:0] bitcnt;
+reg [1:0] bit_hl;
 
 reg byte_received;  // high when a byte has been received
 reg [7:0] byte_data_received;
@@ -33,7 +38,10 @@ reg [7:0] byte_data_received;
 always @(posedge clk)
 begin
   if(~SSEL_active)
+  begin
     bitcnt <= 3'b000;
+	bit_hl <= 1'b0;
+  end
   else
   if(SCK_risingedge)
   begin
@@ -64,7 +72,17 @@ begin
   if(SCK_fallingedge)
   begin
     if(bitcnt==3'b000)
-      byte_data_sent <= 8'h00;  // after that, we send 0s
+      //byte_data_sent <= 8'h00;  // after that, we send 0s
+      if(bit_hl == 0)
+      begin
+		byte_data_sent <= { d4,d5,d6,d7,d8,d9,d10,d11 };
+		bit_hl <= bit_hl + 1'b1;
+      end
+	  else
+      begin
+		byte_data_sent <= { 4'b0000, d0,d1,d2,d3 };
+		bit_hl <= bit_hl + 1'b1;
+      end
     else
       byte_data_sent <= {byte_data_sent[6:0], 1'b0};
   end

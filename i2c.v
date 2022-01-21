@@ -1,3 +1,5 @@
+`default_nettype none
+
 `include "i2c_bridge.v"
 `include "ecp5pll.sv"
 `include "SPI_slave.v"
@@ -20,6 +22,8 @@ module top(
 	input spi_sclk, spi_mosi, spi_cs0,
 	output spi_miso,
 
+	input a2dq2, a2dq3, a2dq4, a2dq5, a2dq6, a2dq7, a2dq8, a2dq9, a2dq10, a2dq11, a2dq12, a2dq13,
+
 	output green_led_d7,
 	output orange_led_d8,
 	output red_led_d5,
@@ -32,8 +36,8 @@ module top(
 	#(
 		.in_hz(24000000),
 		.out0_hz(16000000),.out0_tol_hz(0) ,
-		.out1_hz(96000000), .out1_deg( 0), .out1_tol_hz(0)//,
-		//.out2_hz(60000000), .out2_deg(180), .out2_tol_hz(0),
+		.out1_hz(96000000), .out1_deg( 0), .out1_tol_hz(0),
+		.out2_hz(192000000), .out2_deg(0), .out2_tol_hz(0)
 	)
 	ecp5pll_inst
 	(
@@ -77,7 +81,7 @@ module top(
   wire [1:0] i2c_sda_t;
   i2c_bridge i2c_sda_bridge_i
   (
-    .clk(clk),
+    .clk(mhz_96),
     .clk_en(clk_bridge_en),
     .i(i2c_sda_i),
     .t(i2c_sda_t)
@@ -97,14 +101,25 @@ module top(
   assign rtc_scl = i2c_scl_t[1] ? 1'bz : 1'b0;
   assign tuner_scl = i2c_scl_t[0] ? 1'bz : 1'b0;
 
-
 	SPI_slave SPI_slave(
-		.clk(clk),
+		.clk(clocks[2]),
 		.SCK(spi_sclk),
 		.MOSI(spi_mosi),
 		.MISO(spi_miso),
 		.SSEL(spi_cs0),
-		.LED(red_led_d5)
+		.LED(red_led_d5),
+		.d0(a2dq2),
+		.d1(a2dq3),
+		.d2(a2dq4),
+		.d3(a2dq5),
+		.d4(a2dq6),
+		.d5(a2dq7),
+		.d6(a2dq8),
+		.d7(a2dq9),
+		.d8(a2dq10),
+		.d9(a2dq11),
+		.d10(a2dq12),
+		.d11(a2dq13),
 	);
 
 endmodule
