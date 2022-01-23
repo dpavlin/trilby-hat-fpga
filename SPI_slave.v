@@ -1,4 +1,6 @@
 // https://www.fpga4fun.com/SPI2.html
+//
+// this modified version sends out sequence cound (bit bits) and 16 bit data
 
 module SPI_slave(clk, SCK, MOSI, MISO, SSEL, LED,
 	d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11
@@ -29,8 +31,7 @@ reg [1:0] MOSIr;  always @(posedge clk) MOSIr <= {MOSIr[0], MOSI};
 wire MOSI_data = MOSIr[1];
 
 // we handle SPI in 8-bits format, so we need a 3 bits counter to count the bits as they come in
-reg [2:0] bitcnt;
-reg [1:0] bit_hl;
+reg [3:0] bitcnt;
 
 reg byte_received;  // high when a byte has been received
 reg [7:0] byte_data_received;
@@ -39,8 +40,7 @@ always @(posedge clk)
 begin
   if(~SSEL_active)
   begin
-    bitcnt <= 3'b000;
-	bit_hl <= 1'b0;
+    bitcnt <= 4'b000;
   end
   else
   if(SCK_risingedge)
@@ -71,20 +71,15 @@ begin
   else
   if(SCK_fallingedge)
   begin
-    if(bitcnt==3'b000)
+    if(bitcnt==4'b0000)
       //byte_data_sent <= 8'h00;  // after that, we send 0s
-      if(bit_hl == 0)
-      begin
-		byte_data_sent <= { d4,d5,d6,d7,d8,d9,d10,d11 };
-		bit_hl <= bit_hl + 1'b1;
-      end
-	  else
-      begin
-		byte_data_sent <= { 4'b0000, d0,d1,d2,d3 };
-		bit_hl <= bit_hl + 1'b1;
-      end
-    else
-      byte_data_sent <= {byte_data_sent[6:0], 1'b0};
+      byte_data_sent <= 8'haa;  // after that, we send 0s
+    else begin
+		if (bitcnt==4'b1000)
+     	 	byte_data_sent <= 8'hf0;
+		else
+			byte_data_sent <= {byte_data_sent[6:0], 1'b0};
+		end
   end
 end
 
